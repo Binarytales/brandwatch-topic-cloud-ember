@@ -1,9 +1,10 @@
-<h1>Brandwatch World Cloud</h1>
+<h1>Brandwatch Topic Cloud</h1>
 
-<ul>
 {{#each model as |topic|}}
-  <li>{{topic.label}}</li>
+
+  {{topic-word topic}}
+
 {{/each}}
-</ul>
+
 
 {{outlet}}

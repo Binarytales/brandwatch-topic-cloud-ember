@@ -1,0 +1,11 @@
+body {
+  font-family: sans-serif;
+}
+
+.topic-word {
+  color: black;
+}
+
+.sentiment-neutral { color: grey; }
+.sentiment-positive { color: green; }
+.sentiment-negative { color: red; }
