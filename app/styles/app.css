@@ -8,22 +8,28 @@ body {
 }
 
 .volume-verylow {
-  font-size: 1em
+  font-size: 1em;
+  line-height: 1;
 }
 .volume-low {
-  font-size: 1.25em
+  font-size: 1.25em;
+  line-height: 1;
 }
 .volume-medium {
-  font-size: 1.5em
+  font-size: 1.5em;
+  line-height: 1;
 }
 .volume-high {
-  font-size: 1.75em
+  font-size: 1.75em;
+  line-height: 1;
 }
 .volume-veryhigh {
-  font-size: 2em
+  font-size: 2em;
+  line-height: 1;
 }
 .volume-epic {
-  font-size: 3em
+  font-size: 3em;
+  line-height: 1;
 }
 
 .sentiment-neutral { color: grey; }

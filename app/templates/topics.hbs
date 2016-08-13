@@ -1,6 +1,6 @@
 <h1>Brandwatch Topic Cloud</h1>
 
-{{#each model as |topic|}}
+{{#each middleOutTopics as |topic|}}
 
   {{#link-to 'topics.topic' topic class="topic-word"}}{{topic-word topic volumeRanges volumeLabels}}{{/link-to}}
 

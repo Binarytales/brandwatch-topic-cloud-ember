@@ -44,5 +44,25 @@ export default Ember.Controller.extend({
     }
 
     return ranges;
+  }),
+
+  middleOutTopics: Ember.computed('model', function () {
+    const topics = this.get('model').sortBy('volume');
+
+    let sortedTopics = [];
+    let i = topics.length;
+
+    while  ( i > 0 ) {
+      if (i % 2) {
+        sortedTopics.push(topics.objectAt(i));
+      } else {
+        sortedTopics.unshift(topics.objectAt(i));
+      }
+      i--;
+    }
+
+    return sortedTopics;
+
   })
+
 });
