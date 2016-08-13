@@ -1,1 +1,16 @@
 <h2>{{model.label}}</h2>
+
+Volume: {{model.volume}}
+
+
+{{#if model.sentiment.positive}}
+  Positive: {{model.sentiment.positive}}
+{{/if}}
+
+{{#if model.sentiment.neutral}}
+  Negative: {{model.sentiment.neutral}}
+{{/if}}
+
+{{#if model.sentiment.negative}}
+  Neutral: {{model.sentiment.negative}}
+{{/if}}
