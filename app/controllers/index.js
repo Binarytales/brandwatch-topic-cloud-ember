@@ -12,37 +12,35 @@ export default Ember.Controller.extend({
 
   volumeRanges: Ember.computed('model', function () {
 
-    const topics = this.get('model').sortBy('volume');
-    const labels = this.get('volumeLabels');
-    const numRanges = labels.length;
+    const uniqueVolumes = this.get('model').uniqBy('volume').sortBy('volume').map(topic => topic.get('volume'));
 
-    const max = topics.get('lastObject.volume');
-    const min = topics.get('firstObject.volume');
-    const delta = max - min;
+    let numOfBrackets = this.get('volumeLabels').length;
+    const numOfVolumes = uniqueVolumes.length;
 
     let ranges = [];
 
     /*
       Calculating the modulo and removing it from calculating the size of a
-      single range ensures no boundries are missed due to rounding
+      single range ensures no boundries are missed due to rounding and a more
+      equal distibution
     */
 
-    let margin = delta % numRanges;
-    const singleRange = (delta - margin) / numRanges;
+    let overflow = numOfVolumes % numOfBrackets;
+    const volumesPerBracket = (numOfVolumes - overflow) / numOfBrackets;
 
-    let nextRangeCeiling = min;
+    let i = -1;
 
-    console.log(nextRangeCeiling);
+    while (numOfBrackets) {
 
-    while (nextRangeCeiling < max) {
-      nextRangeCeiling = nextRangeCeiling + singleRange;
-
-      // If any margin remains distribute evenly across the ranges
-      if (margin) {
-        nextRangeCeiling++;
-        margin--;
+      if (overflow) {
+        i = i + volumesPerBracket + 1;
+        overflow--;
+      } else {
+        i = i + volumesPerBracket;
       }
-      ranges.push(nextRangeCeiling);
+      ranges.push(uniqueVolumes[i]);
+      numOfBrackets--;
+
     }
     
     return ranges;

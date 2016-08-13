@@ -7,22 +7,22 @@ body {
 }
 
 .volume-verylow {
-  font-size: 0.25em
-}
-.volume-low {
-  font-size: 0.5em
-}
-.volume-medium {
   font-size: 1em
 }
+.volume-low {
+  font-size: 1.25em
+}
+.volume-medium {
+  font-size: 1.5em
+}
 .volume-high {
-  font-size: 2em
+  font-size: 1.75em
 }
 .volume-veryhigh {
-  font-size: 3em
+  font-size: 2em
 }
 .volume-epic {
-  font-size: 4em
+  font-size: 3em
 }
 
 .sentiment-neutral { color: grey; }
