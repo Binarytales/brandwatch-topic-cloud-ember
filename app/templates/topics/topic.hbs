@@ -8,9 +8,11 @@ Volume: {{model.volume}}
 {{/if}}
 
 {{#if model.sentiment.neutral}}
-  Negative: {{model.sentiment.neutral}}
+  Neutral: {{model.sentiment.neutral}}
 {{/if}}
 
 {{#if model.sentiment.negative}}
-  Neutral: {{model.sentiment.negative}}
+  Negative: {{model.sentiment.negative}}
 {{/if}}
+
+{{donut-chart sentimentData}}
