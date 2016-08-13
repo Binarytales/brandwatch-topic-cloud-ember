@@ -1,0 +1,9 @@
+<h1>Brandwatch Topic Cloud</h1>
+
+{{#each model as |topic|}}
+
+  {{#link-to 'topics.topic' topic}}{{topic-word topic volumeRanges volumeLabels}}{{/link-to}}
+
+{{/each}}
+
+{{outlet}}

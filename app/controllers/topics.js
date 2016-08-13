@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
       numOfBrackets--;
 
     }
-    
+
     return ranges;
   })
 });
