@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 const TopicWordComponent = Ember.Component.extend({
-
-  classNames: ['topic-word'],
+  tagName: 'span',
   classNameBindings: ['sentimentClass', 'volumeClass'],
 
   sentimentClass: Ember.computed('topic.sentimentScore', function () {

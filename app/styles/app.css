@@ -4,6 +4,7 @@ body {
 
 .topic-word {
   color: black;
+  text-decoration: none;
 }
 
 .volume-verylow {
