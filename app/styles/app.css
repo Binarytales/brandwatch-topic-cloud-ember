@@ -6,6 +6,25 @@ body {
   color: black;
 }
 
+.volume-verylow {
+  font-size: 0.25em
+}
+.volume-low {
+  font-size: 0.5em
+}
+.volume-medium {
+  font-size: 1em
+}
+.volume-high {
+  font-size: 2em
+}
+.volume-veryhigh {
+  font-size: 3em
+}
+.volume-epic {
+  font-size: 4em
+}
+
 .sentiment-neutral { color: grey; }
 .sentiment-positive { color: green; }
 .sentiment-negative { color: red; }
