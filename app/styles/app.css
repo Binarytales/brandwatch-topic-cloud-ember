@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background: #223;
   color: #ededed;
+  height: 100%;
 }
 
 h1 {
@@ -14,11 +15,32 @@ h1 {
 }
 
 .word-cloud-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 70%;
+  /*margin: 0 auto;*/
+  float: left;
+}
+
+
+.topic-word:hover {
+  fill: #fff;
+}
+
+.sentiment-neutral { color: #AAB; fill: #AAB; }
+.sentiment-positive { color: #9F9; fill: #9F9; }
+.sentiment-negative { color: #F99; fill: #F99; }
+
+.selected-topic {
+  fill: #fff;
+  stroke-width: 2px;
+}
+
+.selected-topic.sentiment-neutral { stroke: #AAB; }
+.selected-topic.sentiment-positive { stroke: #9F9; }
+.selected-topic.sentiment-negative { stroke: #F99; }
+
+.details {
+  width: 30%;
+  float: right;
 }
 
 .topic-word {
@@ -49,7 +71,3 @@ h1 {
   font-size: 3em;
   line-height: 1;
 }
-
-.sentiment-neutral { color: grey; }
-.sentiment-positive { color: green; }
-.sentiment-negative { color: red; }

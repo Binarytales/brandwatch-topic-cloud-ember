@@ -1,20 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  volumeLabels: [
-    'verylow',
-    'low',
-    'medium',
-    'high',
-    'veryhigh',
-    'epic'
-  ],
 
   volumeRanges: Ember.computed('model', function () {
 
     const uniqueVolumes = this.get('model').uniqBy('volume').sortBy('volume').map(topic => topic.get('volume'));
 
-    let numOfBrackets = this.get('volumeLabels').length;
+    let numOfBrackets = 6;
     const numOfVolumes = uniqueVolumes.length;
 
     let ranges = [];
@@ -61,48 +53,25 @@ export default Ember.Controller.extend({
 
       const score = topic.get('sentimentScore');
 
-      let color =  '#778';
+      let sentiment = 'neutral';
+
       if (score > 60) {
-        color = '#696';
+         sentiment = 'positive';
       } else if (score < 40) {
-        color = '#966';
+         sentiment = 'negative';
       }
 
       return {
         id: topic.get('id'),
         text: topic.get('label'),
         size,
-        color
+        sentiment
       };
     })
   }),
 
-  middleOutTopics: Ember.computed('model', function () {
-    const topics = this.get('model').sortBy('volume');
-
-    let sortedTopics = [];
-    let i = topics.length;
-
-    while  ( i > 0 ) {
-      if (i % 2) {
-        sortedTopics.push(topics.objectAt(i));
-      } else {
-        sortedTopics.unshift(topics.objectAt(i));
-      }
-      i--;
-    }
-
-    return sortedTopics;
-
-  }),
-
-
-
   actions: {
-    selected(id) {
-
-      console.log({id}, this);
-
+    changeTopic(id) {
       this.transitionToRoute('topics.topic', id);
       return false;
     }
