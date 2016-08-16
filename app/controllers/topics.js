@@ -46,6 +46,37 @@ export default Ember.Controller.extend({
     return ranges;
   }),
 
+  wordCloudData: Ember.computed('model', 'volumeRanges', function () {
+    return this.get('model').map(topic => {
+
+      let size = 1;
+
+      this.get('volumeRanges').some((rangeCeiling, index) => {
+        if (topic.get('volume') <= rangeCeiling) {
+          return size = index + 1;
+        } else {
+          return false;
+        }
+      });
+
+      const score = topic.get('sentimentScore');
+
+      let color =  '#778';
+      if (score > 60) {
+        color = '#696';
+      } else if (score < 40) {
+        color = '#966';
+      }
+
+      return {
+        id: topic.get('id'),
+        text: topic.get('label'),
+        size,
+        color
+      };
+    })
+  }),
+
   middleOutTopics: Ember.computed('model', function () {
     const topics = this.get('model').sortBy('volume');
 
@@ -63,6 +94,18 @@ export default Ember.Controller.extend({
 
     return sortedTopics;
 
-  })
+  }),
+
+
+
+  actions: {
+    selected(id) {
+
+      console.log({id}, this);
+
+      this.transitionToRoute('topics.topic', id);
+      return false;
+    }
+  }
 
 });

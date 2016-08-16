@@ -1,9 +1,17 @@
-<h1>Brandwatch Topic Cloud</h1>
+<div class="topics">
 
-{{#each middleOutTopics as |topic|}}
 
-  {{#link-to 'topics.topic' topic class="topic-word"}}{{topic-word topic volumeRanges volumeLabels}}{{/link-to}}
+  <h1 class="header">Brandwatch Topic Cloud</h1>
 
-{{/each}}
+  {{word-cloud data=wordCloudData selected=(action "selected")}}
 
-{{outlet}}
+  {{!-- {{#each middleOutTopics as |topic|}}
+
+    {{#link-to 'topics.topic' topic class="topic-word"}}{{topic-word topic volumeRanges volumeLabels}}{{/link-to}}
+
+  {{/each}} --}}
+
+  <div class="details">{{outlet}}</div>
+
+
+</div>
