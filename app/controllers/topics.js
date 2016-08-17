@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
         size,
         sentiment
       };
-    })
+    });
   }),
 
   actions: {

@@ -4,11 +4,8 @@
 
   {{word-cloud data=wordCloudData selectedTopic=selectedTopic changeTopic=(action "changeTopic")}}
 
-  {{!-- {{#each model as |topic|}}
-    {{#link-to 'topics.topic' topic class="topic-word"}}{{topic-word topic volumeRanges volumeLabels}}{{/link-to}}
-  {{/each}} --}}
+  {{outlet}}
 
-  <div class="details">{{outlet}}</div>
-
+  <hr>
 
 </div>

@@ -1,22 +1,26 @@
 import Ember from 'ember';
 
 const DonutChartComponent = Ember.Component.extend({
-  tagName: 'svg',
 
   didInsertElement() {
-    const width = 960,
-          height = 500,
-          radius = Math.min(width, height) / 2;
+    const $container = this.$(),
+          width = $container.width();
 
-    var chart = d3.select(this.$()[0])
+    const height = Math.min(width, window.innerHeight);
+
+    $container.height(height);
+
+    var chart = d3.select($container[0])
+      .append('svg')
       .attr('width', width)
       .attr('height', height)
+      .attr('viewBox', '0 0 500 500')
       .append('g')
-      .attr('transform', `translate(${width / 2}, ${height / 2})`);
+      .attr('transform', `translate(250, 250)`);
 
     var arc = d3.arc()
-      .outerRadius(radius)
-      .innerRadius(radius - 30);
+      .outerRadius(200)
+      .innerRadius(100);
 
     var pie = d3.pie()
       .value(function(d) { return d.count; })
@@ -36,9 +40,9 @@ const DonutChartComponent = Ember.Component.extend({
     const arc = this.get('arc');
 
     const chartUpdates = chart.selectAll('path')
-      .data(pie(data))
+      .data(pie(data));
 
-    chartUpdates.exit().remove()
+    chartUpdates.exit().remove();
 
     chartUpdates.enter()
       .append('path')

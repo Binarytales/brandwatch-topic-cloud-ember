@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+// This scaler set the font sizes
+// It ensures a larger differences between more prominent size classes
 const textSizeScale = d3.scalePow()
                       .exponent(2)
                       .domain([1, 6])
@@ -14,8 +16,6 @@ export default Ember.Component.extend({
   classNames: ['word-cloud-container'],
 
   didInsertElement() {
-    const selectedTopic = this.get('selectedTopic');
-
     const $container = this.$(),
           width = $container.width();
 
@@ -63,7 +63,7 @@ export default Ember.Component.extend({
         .attr('data-id', d => d.id)               // data-id is used for navigation - id is used for D3 selected
         .attr('id', d => makeSafeID(d.id))
         .text(d => d.text);                       // and finally set the actuall text
-    };
+    }
 
     this.$('.topic-word').on('click', e => {
       this.sendAction('changeTopic', this.$(e.target).data('id'));
@@ -74,8 +74,8 @@ export default Ember.Component.extend({
     const selectedTopic = this.get('selectedTopic');
     const previouslySelectedTopic = this.get('previouslySelectedTopic');
 
-    $(`#${makeSafeID(selectedTopic)}`).addClass('selected-topic');
-    $(`#${makeSafeID(previouslySelectedTopic)}`).removeClass('selected-topic');
+    this.$(`#${makeSafeID(selectedTopic)}`).addClass('selected-topic');
+    this.$(`#${makeSafeID(previouslySelectedTopic)}`).removeClass('selected-topic');
 
     this.set('previouslySelectedTopic', selectedTopic);
   }

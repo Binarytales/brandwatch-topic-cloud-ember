@@ -5,13 +5,28 @@ body {
   height: 100%;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   width: 80%;
   padding: 0.2em;
   margin: 0 auto;
   color: #ededee;
   border-bottom: 2px solid #445;
+}
+h2 {
+  margin-top: 2em;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+  color: #ededee;
+  border: 0;
+  border-bottom: 2px solid #445;
+}
+
+p {
+  text-align: center;
 }
 
 .word-cloud-container {
@@ -47,27 +62,20 @@ h1 {
   cursor: pointer;
 }
 
-.volume-verylow {
-  font-size: 1em;
-  line-height: 1;
+.detail-value {
+  display: inline-block;
+  width: 36px;
+  line-height: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: #AAB;
+  color: #223;
+  text-align: center;
+  font-weight: bold;
 }
-.volume-low {
-  font-size: 1.25em;
-  line-height: 1;
+.detail-value-positive{
+  background: #9F9;
 }
-.volume-medium {
-  font-size: 1.5em;
-  line-height: 1;
-}
-.volume-high {
-  font-size: 1.75em;
-  line-height: 1;
-}
-.volume-veryhigh {
-  font-size: 2em;
-  line-height: 1;
-}
-.volume-epic {
-  font-size: 3em;
-  line-height: 1;
+.detail-value-negative {
+  background: #F99;
 }
