@@ -27,7 +27,7 @@ export default Ember.Component.extend({
 
     console.log(JSON.stringify(data));
 
-    const fontFamily = 'Lalezar';
+    const fontFamily = 'Passion One';
 
     // Calculate word cloud text placement using
     // https://github.com/jasondavies/d3-cloud
