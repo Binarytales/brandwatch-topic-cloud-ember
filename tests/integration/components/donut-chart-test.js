@@ -9,16 +9,14 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{donut-chart}}`);
+  this.set('sentimentData', [
+    { label: 'positive', count: 50, color: '#9F9' },
+    { label: 'neutral', count: 30, color: '#AAB'},
+    { label: 'negative', count: 20 || 0, color: '#F99'}
+  ]);
+
+  this.render(hbs`{{donut-chart sentimentData}}`);
 
   assert.equal(this.$().text().trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#donut-chart}}
-      template block text
-    {{/donut-chart}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

@@ -25,6 +25,8 @@ export default Ember.Component.extend({
 
     const data = this.get('data');
 
+    console.log(JSON.stringify(data));
+
     const fontFamily = 'Lalezar';
 
     // Calculate word cloud text placement using
