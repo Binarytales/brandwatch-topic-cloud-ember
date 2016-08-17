@@ -1,7 +1,11 @@
 # Brandwatch Topic Cloud Challenge
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+
+This app was built as a response to the Brandwatch Technical Challenge set here:
+
+https://gist.github.com/grahamscott/65b43572ad18c5fbdd87
+
 
 ## Prerequisites
 
