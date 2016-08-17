@@ -24,9 +24,7 @@ export default Ember.Component.extend({
     $container.height(height);
 
     const data = this.get('data');
-
-    console.log(JSON.stringify(data));
-
+    
     const fontFamily = 'Passion One';
 
     // Calculate word cloud text placement using
