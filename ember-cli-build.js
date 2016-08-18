@@ -20,5 +20,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('vendor/d3.js');
+  app.import('bower_components/d3-cloud/build/d3.layout.cloud.js');
+
   return app.toTree();
 };

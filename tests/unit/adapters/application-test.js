@@ -10,3 +10,8 @@ test('it exists', function(assert) {
   let adapter = this.subject();
   assert.ok(adapter);
 });
+
+test('url for API access is set correctly', function(assert) {
+  let adapter = this.subject();
+  assert.equal(adapter.namespace, 'api');
+});

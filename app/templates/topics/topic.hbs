@@ -1,0 +1,26 @@
+<div class="details">
+  <h2>{{model.label}}</h2>
+
+  <p>
+    Volume: <span class="detail-value detail-value-volume">{{model.volume}}</span>
+  </p>
+
+  <hr>
+
+  {{donut-chart sentimentData}}
+
+  <p>
+    {{#if model.sentiment.positive}}
+      Positive: <span class="detail-value detail-value-positive">{{model.sentiment.positive}}</span>
+    {{/if}}
+
+    {{#if model.sentiment.neutral}}
+      Neutral: <span class="detail-value detail-value-neutral">{{model.sentiment.neutral}}</span>
+    {{/if}}
+
+    {{#if model.sentiment.negative}}
+      Negative: <span class="detail-value detail-value-negative">{{model.sentiment.negative}}</span>
+    {{/if}}
+  </p>
+
+</div>
